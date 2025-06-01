@@ -41,10 +41,15 @@ class Eater(Node2D, ColliderComponent):
                     # FIXME: Use `queue_free` when fixed in `charz`
                     collider.hide()
                     collider.hitbox.disabled = True
-                    center = collider.global_position + collider.get_texture_size() / 2
-                    for x in range(10):
-                        for y in range(3):
-                            EatParticle().with_global_position(center + Vec2(x, y))
+                    for x_offset, char in enumerate(collider.text):
+                        (  # Spawn fragment particles
+                            EatParticle()
+                            .with_global_position(
+                                collider.global_position + Vec2(x_offset, 0)
+                            )
+                            .with_texture(char)
+                            .with_color(collider.color)
+                        )
 
 
 class Player(ColliderComponent, Sprite):
@@ -124,26 +129,38 @@ class Player(ColliderComponent, Sprite):
         return collided
 
 
-class JumpParticle(Sprite):
-    color = colex.WHITE
-    texture = ["~"]
+class Particle(Sprite):
+    _FLOW_SPEED: float = 0.7
+    min_lifetime: float = 0.8
+    max_lifetime: float = 1.2
+    texture = ["<particle>"]
 
     def __init__(self) -> None:
-        self._lifetime = 0.7 * random.random() + 0.4
+        self._lifetime = self.max_lifetime * random.random() + self.min_lifetime
 
     def update(self) -> None:
-        self.position += Vec2(
-            random.randint(-1, 1),
-            random.randint(-1, 1),
+        self.position += (
+            Vec2(
+                random.randint(-1, 1),
+                random.randint(-1, 1),
+            )
+            * self._FLOW_SPEED
         )
         self._lifetime -= Time.delta
         if self._lifetime <= 0:
             self.hide()
 
 
-class EatParticle(JumpParticle):
-    color = colex.DARK_RED
-    texture = ["o"]
+class EatParticle(Particle):
+    min_lifetime = 0.1
+    max_lifetime = 0.4
+
+
+class JumpParticle(Particle):
+    color = colex.WHITE
+    texture = ["~"]
+    min_lifetime = 0.4
+    max_lifetime = 1.1
 
 
 class Enemy(ColliderComponent, Label): ...
