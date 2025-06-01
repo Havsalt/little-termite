@@ -44,9 +44,7 @@ class Eater(Node2D, ColliderComponent):
                     center = collider.global_position + collider.get_texture_size() / 2
                     for x in range(10):
                         for y in range(3):
-                            EatParticle().with_global_position(
-                                center + Vec2(x, y)
-                            )
+                            EatParticle().with_global_position(center + Vec2(x, y))
 
 
 class Player(ColliderComponent, Sprite):
