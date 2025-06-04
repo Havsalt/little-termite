@@ -38,9 +38,7 @@ class Eater(Node2D, ColliderComponent):
         for collider in self.get_colliders():
             if isinstance(collider, Enemy):
                 if keyboard.is_pressed("f"):
-                    # FIXME: Use `queue_free` when fixed in `charz`
-                    collider.hide()
-                    collider.hitbox.disabled = True
+                    collider.queue_free()
                     for x_offset, char in enumerate(collider.text):
                         (  # Spawn fragment particles
                             EatParticle()
@@ -148,7 +146,7 @@ class Particle(Sprite):
         )
         self._lifetime -= Time.delta
         if self._lifetime <= 0:
-            self.hide()
+            self.queue_free()
 
 
 class EatParticle(Particle):
