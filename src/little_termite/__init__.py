@@ -134,7 +134,7 @@ class Particle(Sprite):
     texture = ["<particle>"]
 
     def __init__(self) -> None:
-        self._lifetime = self.max_lifetime * random.random() + self.min_lifetime
+        self._lifetime_remaining = self.max_lifetime * random.random() + self.min_lifetime
 
     def update(self) -> None:
         self.position += (
@@ -144,8 +144,8 @@ class Particle(Sprite):
             )
             * self._FLOW_SPEED
         )
-        self._lifetime -= Time.delta
-        if self._lifetime <= 0:
+        self._lifetime_remaining -= Time.delta
+        if self._lifetime_remaining <= 0:
             self.queue_free()
 
 
