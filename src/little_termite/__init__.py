@@ -188,6 +188,10 @@ class Game(Engine):
                 Hitbox(size=Vec2(len(line), 1)),
             )
 
+    def update(self) -> None:
+        if keyboard.is_pressed("esc"):
+            self.is_running = False
+
 
 def main() -> None:
     game = Game()
