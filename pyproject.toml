@@ -1,7 +1,11 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
-name = "control-killer"
+name = "havsalt-little-termite"
 version = "0.1.0"
-description = "Add your description here"
+description = "Terminate command output, by controlling this little hungry and human-looking termite"
 authors = [
     { name = "Havsalt", email = "77575424+Havsalt@users.noreply.github.com" }
 ]
@@ -10,14 +14,10 @@ dependencies = [
 ]
 readme = "README.md"
 requires-python = ">= 3.13"
-license = { text = "MIT" }
+license = { file = "LICENSE" }
 
 [project.scripts]
-main = "control_killer:main"
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+little-termite = "little_termite:main"
 
 [tool.rye]
 managed = true
@@ -27,4 +27,4 @@ dev-dependencies = []
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/control_killer"]
+packages = ["src/little_termite"]
