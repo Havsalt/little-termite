@@ -1,9 +1,9 @@
 import random
 import sys
 
-from charz._annotations import ColliderNode
 import keyboard
 import colex
+from charz._annotations import ColliderNode
 from charz import (
     Engine,
     Screen,
@@ -134,7 +134,9 @@ class Particle(Sprite):
     texture = ["<particle>"]
 
     def __init__(self) -> None:
-        self._lifetime_remaining = self.max_lifetime * random.random() + self.min_lifetime
+        self._lifetime_remaining = (
+            self.max_lifetime * random.random() + self.min_lifetime
+        )
 
     def update(self) -> None:
         self.position += (
