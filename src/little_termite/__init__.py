@@ -172,7 +172,8 @@ class Game(Engine):
     def __init__(self) -> None:
         self.player = Player()
         Camera.current = SmoothCamera(
-            self.player, mode=Camera.MODE_CENTERED | Camera.MODE_INCLUDE_SIZE
+            self.player,
+            mode=Camera.MODE_CENTERED | Camera.MODE_INCLUDE_SIZE,
         )
         for y_position, raw_line in enumerate(sys.stdin, start=10):
             line = raw_line.replace("\n", "")
