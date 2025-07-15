@@ -7,7 +7,7 @@ Terminate command output, by controlling this little hungry and human-looking te
 
 ## Installation
 
-### Using `pipx`
+### Using [pipx](https://github.com/pypa/pipx)
 
 The easist way to start terminating command output, is to install using `pipx`:
 
@@ -24,9 +24,9 @@ ipconfig | little-termite
 You can also try using other commands like `ls`, `grep` and `cat`.
 It is *more fun* when the output contains **many lines**.
 
-### Using `git clone` and `rye`
+### Using [git clone](https://git-scm.com/downloads) and [rye](https://rye.astral.sh/guide/installation)
 
-Make sure you have [git](https://git-scm.com/downloads) and [rye](https://rye.astral.sh/guide/installation/) installed.
+Make sure you have `git` and `rye` installed.
 
 Then, run the following steps.
 
