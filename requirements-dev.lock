@@ -15,7 +15,7 @@ charz==0.1.0
     # via havsalt-little-termite
 charz-core==0.1.1
     # via charz
-charz-rust==0.2.0.dev1
+charz-rust==0.2.0
     # via havsalt-little-termite
 colex==0.3.1
     # via charz
