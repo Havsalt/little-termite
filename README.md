@@ -7,6 +7,9 @@ Terminate command output, by controlling this little hungry and human-looking te
 
 ## Installation
 
+Before installing `little-termite`, make sure to have a `Rust compiler` available.
+You can use `rustc` through [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html). This is for compiling `charz-rust`, which results in faster rendering.
+
 ### Using [pipx](https://github.com/pypa/pipx)
 
 The easist way to start terminating command output, is to install using `pipx`:

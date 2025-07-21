@@ -11,6 +11,7 @@ authors = [
 ]
 dependencies = [
     "charz[keyboard]~=0.1.0",
+    "charz-rust~=0.2.0.dev1",
 ]
 readme = "README.md"
 requires-python = ">= 3.13"

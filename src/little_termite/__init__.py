@@ -6,7 +6,6 @@ import colex
 from charz._annotations import ColliderNode
 from charz import (
     Engine,
-    Screen,
     Node2D,
     Sprite,
     Label,
@@ -18,6 +17,7 @@ from charz import (
     move_toward,
     sign,
 )
+from charz_rust import RustScreen
 
 
 class SmoothCamera(Camera):
@@ -167,7 +167,7 @@ class Enemy(ColliderComponent, Label): ...
 
 
 class Game(Engine):
-    screen = Screen(auto_resize=True)
+    screen = RustScreen(auto_resize=True)
 
     def __init__(self) -> None:
         self.player = Player()
