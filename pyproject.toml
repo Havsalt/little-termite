@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "havsalt-little-termite"
-version = "0.1.0"
+version = "0.1.1"
 description = "Terminate command output, by controlling this little hungry and human-looking termite"
 authors = [
     { name = "Havsalt", email = "77575424+Havsalt@users.noreply.github.com" }
